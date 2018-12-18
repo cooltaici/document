@@ -2,7 +2,7 @@
 #### 在线安装
 已安装python包查看  </br>
 ''' bash
-'''
+ '''
 pip list
 env/pip list
 安装库   </br>
