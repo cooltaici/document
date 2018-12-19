@@ -9,7 +9,7 @@ fatal: open /dev/null or dup failed: No such file or directory
 #### 1.2 linux下
 &emsp;如果是debian版本，直接在终端执行：
 ``` bash
-&emsp;
+sudo apt-get install git
 ```
 #### 1.3 git配置
 windows下：
