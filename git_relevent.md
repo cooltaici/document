@@ -28,7 +28,41 @@ git clone url
 ``` bash
 git push url
 ```
-### 3.0 文件管理
+### 3. 文件管理
+#### 3.1 版本回退
+git log命令显示从最近到最远的提交日志,--pretty=oneline是单行显示，这个命令会显示每次commit的ID号（版本号）
+``` bash
+git log
+git log --pretty=oneline
+```
+回退到上一个版本。HEAD其实就是版本指针。注：Git的版本回退非常快，因为它只要移动HEAD指针就可以了。
+``` bash
+git reset --hard HEAD^
+```
+根据commit_id回退到任意版本。
+``` bash
+git reset --hard commit_id
+```
+查询命令历史，以便获得commit_id。比如我们在回退到比较靠前的版本，又想重新回到最新版本，使用git log已经看不到了，这时候可以用git relog
+``` bash
+git reflog
+```
+#### 3.2 工作区和暂存区
+见：https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013745374151782eb658c5a5ca454eaa451661275886c6000 </br>
+查看工作区状态
+``` bash
+git status
+```
+将工作区的修改提交到暂存区
+``` bash
+git add
+git rm
+```
+将暂存区提交到仓库分支。可以想到的是，commit完之后，执行git status之后工作区就没有要git add/rm的内容了
+``` bash
+git commit -m "comment summary"
+```
+#### 3.3 管理修改
 ### 4.0 分支管理
 查看修改 </br>
 ``` bash
