@@ -136,3 +136,54 @@ git log --graph --pretty=oneline --abbrev-commit
 git merge --no-ff -m "merge with no-ff" dev
 ```
 #### 4.4 Bug分支
+&emsp;如果有一个编号为110的BUG需要尽快修复，需要放下手中的工作。并不是你不想提交，而是工作只进行到一半，还没法提交，预计完成还需1天时间。但是，必须在两个小时内修复该bug，怎么办？幸好，Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作。</br>
+将当前工作区存储起来
+``` bash
+git stash
+```
+查看存储的工作区现场列表。
+``` bash
+git stash list
+```
+恢复现场，但是不删除
+``` bash
+git stash apply
+git stash apply stash@{0}
+```
+恢复工作区现场，并删除
+``` bash
+git stash pop
+```
+#### 4.5 Feature分支
+如果因某些原因，导致新branch分支任务取消，需要彻底删除这个分支。使用:
+``` bash
+git branch -D dev
+```
+注：使用git branch -d dev是不行的，没有合并的分支无法删除
+#### 4.6 多人协作
+使用git remote查看远程库的信息
+```bash
+git remote
+git remote -v
+```
+使用git push推送分支
+``` bash
+git push origin master
+git push origin dev
+```
+一般开发过程中有哪些分支呢？
+- master。这个分支是主干分支，一般只用来推送版本，不作开发。需要时刻保持与本地同步。
+- dev。开发分支，团队所有成员都要在这个上面工作
+使用git clone从远程库上clone后，使用git branch只能看到master分支。创建远程的dev分支使用：
+``` bash
+git checkout -b dev origin/dev
+```
+如果有别的人，在你提交之前，对dev版本作了修改并且已经提交完毕，这时候推送的话，就会有冲突，这时候需要先git pull从origin/edv抓取下来，然后本地合并，解决冲突再进行推送。</br>
+先指定本地dev分支和远程分支的链接：
+``` bash
+git branch --set-upstream-to=origin/dev dev
+git pull 
+```
+#### 4.7 Rebase
+### 5. 标签管理
+### 6. 自定义git
