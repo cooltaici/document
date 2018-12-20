@@ -97,6 +97,42 @@ git reset HEAD .  #所有文件
 ``` bash
 git rm filename
 ```
-### 4.0 分支管理
+### 4. 分支管理
 #### 4.1 创建和合并分支
-
+git中，使用git branch创建分支，使用git checkout切换
+``` bash
+git branch dev
+git checkout dev
+```
+也可以使用一步命令直接完成创建分支到切换的目的。-b这个参数表示切换的意思
+``` bash
+git checkout -b dev
+```
+使用git branch可以列出所有分支，并且标出当前分支。
+``` bash
+git branch
+```
+分支合并，使用git merge可以将当前版本和指定版本合并。如果要合并的分支的关系是前后关系，那么合并的模式是Fast-forward模式，这种模式只是指针的指向的改变。
+``` bash
+git merge dev
+```
+放弃合并。
+``` bash
+git merge --abort
+``
+删除分支。使用git branch -d 可以删除指定分支。一般来说，在分支上完成某个任务后，先合并到master，然后再删除掉branch分支。
+``` bash
+git branch -d dev
+```
+#### 4.2 解决冲突
+当两个分支都做了修改的时候，就不能使用快速合并了，这个时候要合并的话，可能会出现冲突。这个时候我们需要手动解决冲突。Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容。</br>
+使用git log --graph可以查看分支合并的图。
+``` bash
+git log --graph --pretty=oneline --abbrev-commit
+```
+#### 4.3 分支管理策略
+通常，合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息。如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。其中--no-ff是禁用Fast forward模式，-m是commit参数。
+``` bash
+git merge --no-ff -m "merge with no-ff" dev
+```
+#### 4.4 Bug分支
