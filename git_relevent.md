@@ -1,4 +1,5 @@
 **廖雪峰git教程**：https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
+[TOC]
 ### 1.0 Git安装
 #### 1.1 windows下
 &emsp;下载windows下的git安装包https://gitforwindows.org/，按默认安装即可。作者在安装后使用的时候出现:
