@@ -66,6 +66,14 @@ atom使用基础<https://blog.csdn.net/u010494080/article/details/50372857> </br
 - [ ] 未完成事项
 - [x] 已完成事项
 ```
+#### 表格制作
+``` text
+Name | Academy | score
+- | :-: | -:
+Harry Potter | Gryffindor| 90
+Hermione Granger | Gryffindor | 100
+Draco Malfoy | Slytherin | 90
+```
 #### 文字连接以及图片
 ``` text
 [主页](https://github.com/cooltaici?tab=repositories)
